@@ -1,0 +1,41 @@
+body{
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1em;
+    background-color: rgba(228, 204, 228, 0.576);
+}
+#menu{
+    display: flex;
+    justify-content: center;
+    column-gap: 1.5em;
+    list-style-type: none;
+}
+#menu a{
+    text-decoration: none;
+    background-color: rgb(164, 114, 211);
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    color: white;
+}
+#menu a:hover{
+    background-color: rgb(91, 47, 130)
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+    padding: 0.5em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+}
+label{
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+}
+.container{
+    margin: 3em 0;
+}
