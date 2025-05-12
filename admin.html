@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="checkAuth"></script>
     <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -28,6 +29,7 @@
         </div>
 
         <div class="form-container">
+            <div id="product-form">
             <h3>Lägg till ny produkt</h3>
             <form id="add-product-form">
                 <div class="form-group">
@@ -44,6 +46,7 @@
                 </div>
                 <button type="submit">Lägg till produkt</button>
             </form>
+        </div>
         </div>
     </main>
     <div class="notification" id="notification"></div>
