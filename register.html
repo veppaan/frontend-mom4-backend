@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1>Admin</h1>
+        <h1>Registrering</h1>
         <nav>
             <ul id="menu">
                 <li><a href="index.html">Startsida</a></li>
@@ -21,30 +21,20 @@
     </header>
     
     <main class="container">
-        <div id="admin-section">
-            <h2>Admin Dashboard</h2>
-            <div class="admin-info">
-                <p>Du är inloggad som <strong>admin</strong></p>
-            </div>
-        </div>
 
         <div class="form-container">
             <div id="product-form">
-            <h3>Lägg till ny produkt</h3>
-            <form id="add-product-form">
+            <h3>Skapa admin-konto</h3>
+            <form id="add-user-form">
                 <div class="form-group">
-                    <label for="product-name">Produktnamn</label>
-                    <input type="text" id="product-name">
+                    <label for="username">Användarnamn</label>
+                    <input type="text" id="username">
                 </div>
                 <div class="form-group">
-                    <label for="product-description">Beskrivning</label>
-                        <input type="text" id="product-description">
+                    <label for="password">Lösenord</label>
+                        <input type="text" id="password">
                 </div>
-                <div class="form-group">
-                    <label for="product-price">Pris(SEK)</label>
-                        <input type="number" id="product-price" min="1">
-                </div>
-                <button type="submit">Lägg till produkt</button>
+                <button type="submit">Skapa konto</button>
             </form>
         </div>
         </div>
