@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
+    <header>
+        <h1>Admin</h1>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html">Startsida</a></li>
+                <li><a href="login.html">Logga in</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
     
+    <main class="container">
+        <div id="admin-section">
+            <h2>Admin Dashboard</h2>
+            <div class="admin-info">
+                <p>Du är inloggad som <strong>admin</strong></p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h3>Lägg till ny produkt</h3>
+            <form id="add-product-form">
+                <div class="form-group">
+                    <label for="product-name">Produktnamn</label>
+                    <input type="text" id="product-name">
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Beskrivning</label>
+                        <input type="text" id="product-description">
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Pris(SEK)</label>
+                        <input type="number" id="product-price" min="1">
+                </div>
+                <button type="submit">Lägg till produkt</button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
