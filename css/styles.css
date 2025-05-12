@@ -39,3 +39,7 @@ label{
 .container{
     margin: 3em 0;
 }
+#error-msg{
+    color: red;
+    font-size: 1.1em;
+}

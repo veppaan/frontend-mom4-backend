@@ -1,5 +1,6 @@
 
 const menu = document.getElementById("menu");
+const errorMsg = document.getElementById("error-msg");
 
 
 //formulär
@@ -80,6 +81,7 @@ async function loginUser(e) {
             throw error;
         }
     } catch (error) {
+        errorMsg.innerHTML = "Felaktigt användarnamn eller lösenord!";
         console.log("Felaktigt användarnamn eller lösenord!");
     }
 }
@@ -91,6 +93,7 @@ async function registerUser(e){
     let passwordInput = document.getElementById("password").value;
 
     if(!usernameInput || !passwordInput) {
+        errorMsg.innerHTML = "Fyll i alla fält!";
         console.log("Fyll i alla fält!");
         return;
     }
@@ -99,16 +102,26 @@ async function registerUser(e){
         username: usernameInput,
         password: passwordInput
     }
-    fetch("http://localhost:3001/api/register", {
-        method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(user)
-    })
-    .then(resp => resp.json())
-    .then(data => {
-        console.log(data);
-        window.location.href = "admin.html";
-    })
+
+        try {
+            const resp = await fetch("http://localhost:3001/api/register", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(user)
+            })
+    
+            if(resp.ok) {
+                const data = await resp.json();
+                console.log(data);
+                localStorage.setItem("webshop_token", data.token);
+                window.location.href = "admin.html";
+            }else{
+                throw error;
+            }
+        } catch (error) {
+            errorMsg.innerHTML = "Felaktigt användarnamn eller lösenord!";
+            console.log("Felaktigt användarnamn eller lösenord!");
+        }
 }
