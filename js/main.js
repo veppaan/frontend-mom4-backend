@@ -1,9 +1,17 @@
 
 const menu = document.getElementById("menu");
+const logoutBtn = document.getElementById("logout-button");
 
 //formulär
 const loginForm = document.getElementById("login-form");
 const productForm = document.getElementById("register-form");
+
+if(logoutBtn){
+    logoutBtn.addEventListener("click", function() {
+        localStorage.removeItem("webshop_token");
+        window.location.href = "login.html";
+    });
+}
 
 window.onload = init;
 
