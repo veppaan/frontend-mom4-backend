@@ -64,7 +64,7 @@ async function loginUser(e) {
         password: passwordInput
     }
     try {
-        const resp = await fetch("http://localhost:3001/api/login", {
+        const resp = await fetch("https://backend-mom4-1.onrender.com/api/login", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -104,7 +104,7 @@ async function registerUser(e){
     }
 
         try {
-            const resp = await fetch("http://localhost:3001/api/register", {
+            const resp = await fetch("https://backend-mom4-1.onrender.com/api/register", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
