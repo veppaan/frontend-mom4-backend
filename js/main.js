@@ -148,7 +148,6 @@ async function registerUser(e){
             if(resp.ok) {
                 const data = await resp.json();
                 console.log(data);
-                //localStorage.setItem("token", data.token);
                 window.location.href = "login.html";
             }else{
                 throw error;
