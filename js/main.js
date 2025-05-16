@@ -4,8 +4,8 @@ const errorMsg = document.getElementById("error-msg");
 
 
 //formulär
-const loginForm = document.getElementById("login-form");
-const registerForm = document.getElementById("register-form");
+const loginForm = document.getElementById("login");
+const registerForm = document.getElementById("register");
 
 window.onload = init;
 
