@@ -36,6 +36,7 @@ function changeMenu(){
         menu.innerHTML = `
         <li><a href="index.html">Startsida</a></li>
         <li><a href="admin.html">Admin</a></li>
+        <li><a href="protected.html">Skyddad sida</a></li>
         <li><a href="" id="logout-button" class="logout-button">Logga ut</a></li>
         `
         updateMenu();
@@ -75,13 +76,38 @@ async function loginUser(e) {
         if(resp.ok) {
             const data = await resp.json();
             
-            localStorage.setItem("webshop_token", data.token);
-            window.location.href = "admin.html";
+            //localStorage.setItem("webshop_token", data.token);
+            window.location.href = "login.html";
         }else{
             throw error;
         }
     } catch (error) {
         errorMsg.innerHTML = "Felaktigt användarnamn eller lösenord!";
+        console.log("Felaktigt användarnamn eller lösenord!");
+    }
+}
+
+//Protected page
+async function getProtectedData() {
+    const token = localStorage.getItem("token");
+    const protectedText = document.getElementById("protected-text");
+    try {
+        const resp = await fetch("https://backend-mom4-1.onrender.com/api/protected", {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+                "Authorization": `Bearer ` + token
+            }
+        })
+
+        if(resp.ok) {
+            const data = await resp.json();
+            protectedText.innerHTML = "Inloggningen lyckades med giltig token!";
+            console.log(data);
+        }else{
+            throw error;
+        }
+    } catch (error) {
         console.log("Felaktigt användarnamn eller lösenord!");
     }
 }
