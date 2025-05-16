@@ -14,7 +14,7 @@ function updateMenu() {
     if(logoutBtn){
     logoutBtn.addEventListener("click", () => {
         console.log("klick på loggga ut")
-        localStorage.removeItem("webshop_token");
+        localStorage.removeItem("token");
         window.location.href = "login.html";
     });
 }
@@ -32,12 +32,12 @@ function init() {
 }
 
 function changeMenu(){
-    if(localStorage.getItem("webshop_token")){
+    if(localStorage.getItem("token")){
         menu.innerHTML = `
         <li><a href="index.html">Startsida</a></li>
         <li><a href="admin.html">Admin</a></li>
         <li><a href="protected.html">Skyddad sida</a></li>
-        <li><a href="" id="logout-button" class="logout-button">Logga ut</a></li>
+        <li><a href="" id="logout-button">Logga ut</a></li>
         `
         updateMenu();
     }else{
@@ -76,8 +76,9 @@ async function loginUser(e) {
         if(resp.ok) {
             const data = await resp.json();
             
-            //localStorage.setItem("webshop_token", data.token);
-            window.location.href = "login.html";
+            localStorage.setItem("token", data.response.token);
+            console.log(data.token);
+            window.location.href = "admin.html";
         }else{
             throw error;
         }
@@ -105,11 +106,17 @@ async function getProtectedData() {
             protectedText.innerHTML = "Inloggningen lyckades med giltig token!";
             console.log(data);
         }else{
+            console.log(token)
+            protectedText.innerHTML = "Inloggningen misslyckades med ogiltig token!";
             throw error;
         }
     } catch (error) {
-        console.log("Felaktigt användarnamn eller lösenord!");
+        console.log("Det blev något fel med token-autentisering!");
     }
+}
+
+if(window.location.href.includes("protected.html")){
+    getProtectedData();
 }
 
 async function registerUser(e){
@@ -141,8 +148,8 @@ async function registerUser(e){
             if(resp.ok) {
                 const data = await resp.json();
                 console.log(data);
-                localStorage.setItem("webshop_token", data.token);
-                window.location.href = "admin.html";
+                //localStorage.setItem("token", data.token);
+                window.location.href = "login.html";
             }else{
                 throw error;
             }

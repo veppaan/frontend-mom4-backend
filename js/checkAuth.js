@@ -1,5 +1,5 @@
 "use strict";
 
-if(!localStorage.getItem("webshop_token")){
+if(!localStorage.getItem("token")){
     window.location.href = "login.html";
 }
