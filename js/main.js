@@ -103,12 +103,16 @@ async function getProtectedData() {
 
         if(resp.ok) {
             const data = await resp.json();
-            protectedText.innerHTML = "Inloggningen lyckades med giltig token!";
             console.log(data);
+            protectedText.innerHTML = "";
+            data.forEach(user => {
+                protectedText.innerHTML += `<li>${user.username}</li>`
+            });
+            //protectedText.innerHTML = "Inloggningen lyckades med giltig token!";
         }else{
             console.log(token)
             protectedText.innerHTML = "Inloggningen misslyckades med ogiltig token!";
-            throw error;
+            throw new Error("Ogiltig token");
         }
     } catch (error) {
         console.log("Det blev något fel med token-autentisering!");
