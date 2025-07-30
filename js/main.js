@@ -111,7 +111,7 @@ async function getProtectedData() {
             //protectedText.innerHTML = "Inloggningen lyckades med giltig token!";
         }else{
             console.log(token)
-            protectedText.innerHTML = "Inloggningen misslyckades med ogiltig token!";
+            protectedText.innerHTML = "Du kan inte se denna information med en ogiltig token!";
             throw new Error("Ogiltig token");
         }
     } catch (error) {
