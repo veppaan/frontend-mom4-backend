@@ -1,5 +1,7 @@
 "use strict";
 
+async function checkToken(){
+
 if(!localStorage.getItem("token")){
     window.location.href = "login.html";
 } else {
@@ -23,3 +25,5 @@ if(!localStorage.getItem("token")){
         console.log("Det blev något fel med token-autentisering!");
     }
 }
+}
+checkToken();
