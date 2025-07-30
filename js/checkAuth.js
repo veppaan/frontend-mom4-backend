@@ -19,6 +19,7 @@ if(!localStorage.getItem("token")){
             const data = await resp.json();
             console.log(data);
         }else{
+            localStorage.removeItem("token");
             window.location.href = "login.html";
         }
     } catch (error) {
