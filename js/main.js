@@ -110,7 +110,8 @@ async function getProtectedData() {
             });
             //protectedText.innerHTML = "Inloggningen lyckades med giltig token!";
         }else{
-            console.log(token)
+            console.log(token);
+            window.location.href = "login.html";
             protectedText.innerHTML = "Du kan inte se denna information med en ogiltig token!";
             throw new Error("Ogiltig token");
         }
