@@ -7,7 +7,7 @@ if(!localStorage.getItem("token")){
 } else {
     const token = localStorage.getItem("token");
     try {
-        const resp = await fetch("https://backend-mom4-1.onrender.com/api/token", {
+        const resp = await fetch("https://backend-mom4-1.onrender.com/token", {
             method: "GET",
             headers: {
                 "content-type": "application/json",
